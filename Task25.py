@@ -18,3 +18,4 @@ for i in range(len(letters)):
         dict_letters[letters[i]] +=1
         result_string +=f" {letters[i]}_{dict_letters[letters[i]]} "
 print(result_string)
+
