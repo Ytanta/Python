@@ -13,12 +13,13 @@
 
 # A = int(input("Введите количество чисел: "))
 # array1=[random.randint(1, 10) for i in range(int(A))]
-import random
-data = [random.randint(0, 9) for i in range(10)]
-print(data) 
-counter = 0 
-i=1
-for i in range(1, len(data)-1): 
-    if data[i-1] < data[i] and data[i+1] < data[i]: 
-        counter+=1
-print(counter)
+# import random
+# data = [random.randint(0, 9) for i in range(10)]
+# print(data)
+
+# count = 0 
+# i=1
+# for i in range(1, len(data)-1): 
+#     if data[i-1] < data[i] and data[i+1] < data[i]: 
+#         count+=1
+# print(count)
