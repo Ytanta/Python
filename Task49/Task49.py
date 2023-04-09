@@ -41,56 +41,62 @@ def show_all_items(filename):
     for i in range(1,len(data_array)):
         print("ID: ", data_array[i][0], "Фамилия: ", data_array[i][1],"Имя: ", data_array[i][2], "Отчество: ", data_array[i][3], "Телефон: ", data_array[i][4])
 
-# def search_ID(filename,id_user):
-#     # id_user = input('Введите ID: ')
+def search_ID(filename,id_user):
+    # id_user = input('Введите ID: ')
     
-#     data_array = read_file(filename) 
-#     for i in range(len(data_array)):
-#         if data_array[i][0] == id_user:
-#             print(*(data_array[i]))
-#             break
-#             return True
-#     else:
-#         False
+    data_array = read_file(filename) 
+    for i in range(len(data_array)):
+        if data_array[i][0] == str(id_user-1):
+            print(*(data_array[i]))
+            break
+            return True
+    else:
+        return False
         
 
 def change_items(filename):
     data_array = read_file(filename)
-    id_user = input('Введите ID: ')
-    for i in range(len(data_array)):
-        if data_array[i][0] == id_user:
-            print(*(data_array[i]))
-            break
-    else:
+    id_user = int(input('Введите ID: '))
+    id_user = id_user + 1
+    if search_ID(filename,id_user) == False: 
+    # for i in range(len(data_array)):
+    #     if data_array[i][0] == id_user:
+    #         print(*(data_array[i]))
+    #         break
+    # else:
         return print("Пользователь с таким ID не найден")
-    print('Введите номер, данные которых вы хотите изменить')
-    print(f'1 - Фамилия - {data_array[i][1]}')
-    print(f'2 - Имя - {data_array[i][2]}')
-    print(f'3 - Отечство - {data_array[i][3]}')
-    print(f'4 - Телефон - {data_array[i][4]} ')
+    else:
+        print('Введите номер, данные которых вы хотите изменить')
+        print(f'1 - Фамилия - {data_array[id_user][1]}')
+        print(f'2 - Имя - {data_array[id_user][2]}')
+        print(f'3 - Отечство - {data_array[id_user][3]}')
+        print(f'4 - Телефон - {data_array[id_user][4]} ')
     user_operation2 = int(input())
     if user_operation2 == 1:
-        data_array[i][1] = input("Введите новую фамилию: ")
+        data_array[id_user][1] = input("Введите новую фамилию: ")
     elif user_operation2 == 2: 
-        data_array[i][2] = input("Введите новое имя: ")
+        data_array[id_user][2] = input("Введите новое имя: ")
     elif user_operation2 == 3:
-       data_array[i][3] = input("Введите новое отчество: ")
+       data_array[id_user][3] = input("Введите новое отчество: ")
     elif user_operation2 == 4:
-       data_array[i][4] = input("Введите новый телефон: ")
-    print(*(data_array[i]))
+       data_array[id_user][4] = input("Введите новый телефон: ")
+    print(*(data_array[id_user]))
     write_file(filename, data_array)
     
 def delete_user(filename):
     data_array = read_file(filename)
-    id_user = input('Введите ID: ')
-    for i in range(len(data_array)):
-        if data_array[i][0] == id_user:
-            print(*(data_array[i]))
-            break
+    id_user = int(input('Введите ID: '))
+    id_user = id_user + 1
+    if search_ID(filename,id_user) == False: 
+    # for i in range(len(data_array)):
+    #     if data_array[i][0] == id_user:
+    #         print(*(data_array[i]))
+    #         break
+    # else:
+        return print("Пользователь с таким ID не найден")
     else:
-        return print("Пользователь с таким ID не найден") 
-    del data_array[i]
-    print("Пользователь удален")
+        del data_array[id_user]
+        print("Пользователь удален")
     write_file(filename, data_array)
 
 
