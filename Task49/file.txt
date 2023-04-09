@@ -1,2 +1,0 @@
-id,lastname,firstname,secondname,phone
-12,Ivanov,Ivan,Ivanovich,71234567890
